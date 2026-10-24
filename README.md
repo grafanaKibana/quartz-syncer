@@ -167,3 +167,16 @@ Quartz Syncer would not have been built without the following:
 - [Fantasy Statblocks](https://plugins.javalent.com/statblocks), for their extensible functionality and easy-to-integrate API.
 - [Obsidian Publish](https://obsidian.md/publish), for inspiring me to create a similar solution for Quartz.
 - The entire Obsidian community, for all your weird and amazing creations. Keep it up.
+
+
+### Obsidian comments
+
+Obsidian `%% … %%` comments are removed from published Markdown by default. Set **Obsidian comments** to **Preserve** in Quartz Syncer settings to keep their original syntax and contents, including existing Tabsdown and Colsdown markers. This option publishes **all** comments, including personal comments; it does not select only layout markers. Source notes are unchanged. Downstream Quartz plugins must support the markers you use.
+
+You can also opt in with the CLI:
+
+```sh
+obsidian quartz-syncer:config action=set key=obsidianCommentMode value=preserve
+```
+
+Use `value=remove` to restore the default. Changing the mode invalidates compiled-note caches. Comment recognition follows the existing Obsidian Markdown parser; this setting does not introduce new comment syntax or change its parsing rules.
