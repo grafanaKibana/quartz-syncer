@@ -488,16 +488,3 @@ RESULT=$(obsidian quartz-syncer:sync force format=json)
 
 > [!NOTE] Local only
 > The Obsidian CLI controls the running Obsidian desktop app — it is not a headless tool. These scripting examples are meant for local automation (e.g., shell aliases, cron jobs on your machine), not for headless CI/CD environments.
-
-
-### Preserve Obsidian comments
-
-The `obsidianCommentMode` setting accepts `remove` (default) or `preserve`. Preserve keeps the existing `%%` delimiters and comment contents in published Markdown, including layout markers. All comments are included, so personal comment contents also become part of the publication. Source notes are never rewritten.
-
-```sh
-obsidian quartz-syncer:config action=set key=obsidianCommentMode value=preserve
-obsidian quartz-syncer:config action=get key=obsidianCommentMode
-obsidian quartz-syncer:config action=set key=obsidianCommentMode value=remove
-```
-
-Invalid values are rejected without saving. `config action=reset force` restores Remove along with the other resettable defaults.
